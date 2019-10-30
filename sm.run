@@ -1,0 +1,15 @@
+reset;
+option solver cplex;
+model sm.mod;
+data sm.dat;
+solve;
+
+display Magic_Constant >> magic_square_result.out;
+printf "\nThe result is in the magic_square_result.out file! \n\n";
+for{i in 1..n} { 
+ for {j in 1..n} { 	
+  printf "%3d ", sum {k in 1..n*n} k * y[j,i,k] >> magic_square_result.out;
+  }
+ printf "\n" >> magic_square_result.out;
+}
+printf "===================== \n" >> magic_square_result.out;
