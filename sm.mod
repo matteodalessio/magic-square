@@ -12,7 +12,6 @@ subject to RowsSum {i in 1..n}: sum {j in 1..n, k in 1..n*n} k * y[i, j, k] = co
 subject to ColsSum {j in 1..n}: sum {i in 1..n, k in 1..n*n} k * y[i, j, k] = constant;
 subject to Diag: sum {i in 1..n, k in 1..n*n} k * y[i, i, k] = constant;
 subject to InvDiag: sum {i in 1..n, k in 1..n*n} k * y[i, n-i+1, k] = constant;
-subject to MagicConstant: (n*(n*n + 1))/2 = constant;
 
 ### OBJECTIVE ###
 minimize Magic_Constant: constant;
